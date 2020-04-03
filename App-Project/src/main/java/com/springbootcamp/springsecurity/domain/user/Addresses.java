@@ -10,70 +10,79 @@ import javax.persistence.*;
 public class Addresses {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
-    private String CITY;
-    private String COUNTRY;
-    private String ADDRESS_LINE;
-    private String ZIP_CODE;
-    private String LABEL;
+    private Integer id;
+    private String city;
+    private String state;
+    private String country;
+    private String addressLine;
+    private String zipCode;
+    private String label;
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_ID")
-    private AppUsers appUser;
+    private Users User;
 
-    public AppUsers getAppUser() {
-        return appUser;
+    public Users getUser() {
+        return User;
     }
 
-    public void setAppUser(AppUsers appUser) {
-        this.appUser = appUser;
+    public void setUser(Users User) {
+        this.User = User;
     }
 
-    public Integer getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getCITY() {
-        return CITY;
+    public String getCity() {
+        return city;
     }
 
-    public void setCITY(String CITY) {
-        this.CITY = CITY;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getCOUNTRY() {
-        return COUNTRY;
+    public String getState() {
+        return state;
     }
 
-    public void setCOUNTRY(String COUNTRY) {
-        this.COUNTRY = COUNTRY;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public String getADDRESS_LINE() {
-        return ADDRESS_LINE;
+    public String getCountry() {
+        return country;
     }
 
-    public void setADDRESS_LINE(String ADDRESS_LINE) {
-        this.ADDRESS_LINE = ADDRESS_LINE;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getZIP_CODE() {
-        return ZIP_CODE;
+    public String getAddressLine() {
+        return addressLine;
     }
 
-    public void setZIP_CODE(String ZIP_CODE) {
-        this.ZIP_CODE = ZIP_CODE;
+    public void setAddressLine(String addressLine) {
+        this.addressLine = addressLine;
     }
 
-    public String getLABEL() {
-        return LABEL;
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public void setLABEL(String LABEL) {
-        this.LABEL = LABEL;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 }

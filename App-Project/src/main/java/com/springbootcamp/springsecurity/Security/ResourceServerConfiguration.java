@@ -1,6 +1,7 @@
-package com.springbootcamp.springsecurity;
+package com.springbootcamp.springsecurity.Security;
 
 
+import com.springbootcamp.springsecurity.Security.AppUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,10 +51,11 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(final HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/","/getUsers").anonymous()
-                .antMatchers("/admin/home").hasAnyRole("ADMIN")  //kon kya use kr skta hai
-                .antMatchers("/user/home").hasAnyRole("USER")
-                .antMatchers("/doLogout").hasAnyRole("ADMIN","USER")
+                .antMatchers("/customer/").anonymous()
+                .antMatchers("/admin/home").hasAnyRole("ADMIN")         //kon kya use kr skta hai
+                .antMatchers("/doLogout").hasAnyRole("ADMIN","CUSTOMER","SELLER")
+                .antMatchers("/customer/{id}").hasAnyRole("CUSTOMER","ADMIN")
+                .antMatchers("seller/name").hasAnyRole("SELLER","ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement()

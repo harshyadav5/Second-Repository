@@ -7,11 +7,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "CART")
-@PrimaryKeyJoinColumn(name = "CUSTOMER_USER_ID")
-public class Carts extends Customers {
-
-    private Integer QUANTITY;
-    private boolean IS_WISH_LIST;
+//@PrimaryKeyJoinColumn(name = "CUSTOMER_USER_ID")
+public class Carts {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private Integer quantity;
+    private boolean isWishList;
 
     @ManyToOne
     @JoinColumn(name = "PRODUCT_VARIATION_ID",nullable = false)
@@ -25,19 +27,39 @@ public class Carts extends Customers {
         this.productVariation = productVariation;
     }
 
-    public Integer getQUANTITY() {
-        return QUANTITY;
+    @OneToOne
+    @JoinColumn(name = "CUSTOMER_USER_ID")
+    private Customers customer;
+
+    public Customers getCustomer() {
+        return customer;
     }
 
-    public void setQUANTITY(Integer QUANTITY) {
-        this.QUANTITY = QUANTITY;
+    public void setCustomer(Customers customer) {
+        this.customer = customer;
     }
 
-    public boolean isIS_WISH_LIST() {
-        return IS_WISH_LIST;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIS_WISH_LIST(boolean IS_WISH_LIST) {
-        this.IS_WISH_LIST = IS_WISH_LIST;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public boolean isWishList() {
+        return isWishList;
+    }
+
+    public void setWishList(boolean wishList) {
+        isWishList = wishList;
     }
 }

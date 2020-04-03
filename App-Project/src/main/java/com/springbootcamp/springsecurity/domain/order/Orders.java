@@ -11,19 +11,19 @@ import java.util.List;
 public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
-    private Integer AMOUNT_PAID;
+    private Integer id;
+    private Integer amountPaid;
 
     @Temporal(TemporalType.DATE)
-    private Date DATE_CREATED;
+    private Date date_created;
 
-    private String PAYMENT_METHOD;
-    private String CUSTOMER_ADDRESS_CITY;
-    private String CUSTOMER_ADDRESS_STATE;
-    private String CUSTOMER_ADDRESS_CUSTOMER;
-    private String CUSTOMER_ADDRESS_ADDRESS_LINE;
-    private Integer CUSTOMER_ADDRESS_ZIP_CODE;
-    private String CUSTOMER_ADDRESS_LABEL;
+    private String paymentMethod;
+    private String customerAddressCity;
+    private String customerAddressState;
+    private String customerAddressCountry;
+    private String customerAddressAddressLine;
+    private Integer customerAddressZipCode;
+    private String customerAddressLabel;
 
     @OneToMany(mappedBy = "orders",cascade = CascadeType.ALL)
     private List<OrderProducts> orderProductsList;
@@ -48,83 +48,83 @@ public class Orders {
         this.customer = customer;
     }
 
-    public Integer getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getAMOUNT_PAID() {
-        return AMOUNT_PAID;
+    public Integer getAmountPaid() {
+        return amountPaid;
     }
 
-    public void setAMOUNT_PAID(Integer AMOUNT_PAID) {
-        this.AMOUNT_PAID = AMOUNT_PAID;
+    public void setAmountPaid(Integer amountPaid) {
+        this.amountPaid = amountPaid;
     }
 
-    public Date getDATE_CREATED() {
-        return DATE_CREATED;
+    public Date getDate_created() {
+        return date_created;
     }
 
-    public void setDATE_CREATED(Date DATE_CREATED) {
-        this.DATE_CREATED = DATE_CREATED;
+    public void setDate_created(Date date_created) {
+        this.date_created = date_created;
     }
 
-    public String getPAYMENT_METHOD() {
-        return PAYMENT_METHOD;
+    public String getPaymentMethod() {
+        return paymentMethod;
     }
 
-    public void setPAYMENT_METHOD(String PAYMENT_METHOD) {
-        this.PAYMENT_METHOD = PAYMENT_METHOD;
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
-    public String getCUSTOMER_ADDRESS_CITY() {
-        return CUSTOMER_ADDRESS_CITY;
+    public String getCustomerAddressCity() {
+        return customerAddressCity;
     }
 
-    public void setCUSTOMER_ADDRESS_CITY(String CUSTOMER_ADDRESS_CITY) {
-        this.CUSTOMER_ADDRESS_CITY = CUSTOMER_ADDRESS_CITY;
+    public void setCustomerAddressCity(String customerAddressCity) {
+        this.customerAddressCity = customerAddressCity;
     }
 
-    public String getCUSTOMER_ADDRESS_STATE() {
-        return CUSTOMER_ADDRESS_STATE;
+    public String getCustomerAddressState() {
+        return customerAddressState;
     }
 
-    public void setCUSTOMER_ADDRESS_STATE(String CUSTOMER_ADDRESS_STATE) {
-        this.CUSTOMER_ADDRESS_STATE = CUSTOMER_ADDRESS_STATE;
+    public void setCustomerAddressState(String customerAddressState) {
+        this.customerAddressState = customerAddressState;
     }
 
-    public String getCUSTOMER_ADDRESS_CUSTOMER() {
-        return CUSTOMER_ADDRESS_CUSTOMER;
+    public String getCustomerAddressCountry() {
+        return customerAddressCountry;
     }
 
-    public void setCUSTOMER_ADDRESS_CUSTOMER(String CUSTOMER_ADDRESS_CUSTOMER) {
-        this.CUSTOMER_ADDRESS_CUSTOMER = CUSTOMER_ADDRESS_CUSTOMER;
+    public void setCustomerAddressCountry(String customerAddressCountry) {
+        this.customerAddressCountry = customerAddressCountry;
     }
 
-    public String getCUSTOMER_ADDRESS_ADDRESS_LINE() {
-        return CUSTOMER_ADDRESS_ADDRESS_LINE;
+    public String getCustomerAddressAddressLine() {
+        return customerAddressAddressLine;
     }
 
-    public void setCUSTOMER_ADDRESS_ADDRESS_LINE(String CUSTOMER_ADDRESS_ADDRESS_LINE) {
-        this.CUSTOMER_ADDRESS_ADDRESS_LINE = CUSTOMER_ADDRESS_ADDRESS_LINE;
+    public void setCustomerAddressAddressLine(String customerAddressAddressLine) {
+        this.customerAddressAddressLine = customerAddressAddressLine;
     }
 
-    public Integer getCUSTOMER_ADDRESS_ZIP_CODE() {
-        return CUSTOMER_ADDRESS_ZIP_CODE;
+    public Integer getCustomerAddressZipCode() {
+        return customerAddressZipCode;
     }
 
-    public void setCUSTOMER_ADDRESS_ZIP_CODE(Integer CUSTOMER_ADDRESS_ZIP_CODE) {
-        this.CUSTOMER_ADDRESS_ZIP_CODE = CUSTOMER_ADDRESS_ZIP_CODE;
+    public void setCustomerAddressZipCode(Integer customerAddressZipCode) {
+        this.customerAddressZipCode = customerAddressZipCode;
     }
 
-    public String getCUSTOMER_ADDRESS_LABEL() {
-        return CUSTOMER_ADDRESS_LABEL;
+    public String getCustomerAddressLabel() {
+        return customerAddressLabel;
     }
 
-    public void setCUSTOMER_ADDRESS_LABEL(String CUSTOMER_ADDRESS_LABEL) {
-        this.CUSTOMER_ADDRESS_LABEL = CUSTOMER_ADDRESS_LABEL;
+    public void setCustomerAddressLabel(String customerAddressLabel) {
+        this.customerAddressLabel = customerAddressLabel;
     }
 }

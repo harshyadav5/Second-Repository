@@ -2,8 +2,13 @@ package com.springbootcamp.springsecurity;
 
 
 import com.springbootcamp.springsecurity.domain.Role;
-import com.springbootcamp.springsecurity.domain.user.AppUsers;
-import com.springbootcamp.springsecurity.repository.AppUserRepository;
+import com.springbootcamp.springsecurity.domain.user.Customers;
+import com.springbootcamp.springsecurity.domain.user.Sellers;
+import com.springbootcamp.springsecurity.domain.user.Users;
+import com.springbootcamp.springsecurity.repository.UserRepository;
+import com.springbootcamp.springsecurity.repository.CustomerRepository;
+import com.springbootcamp.springsecurity.repository.RoleRepository;
+import com.springbootcamp.springsecurity.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -18,33 +23,76 @@ import java.util.List;
 public class Bootstrap implements ApplicationRunner {
 
     @Autowired
-    AppUserRepository appUserRepository;
+    RoleRepository roleRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    CustomerRepository customerRepository;
+
+    @Autowired
+    SellerRepository sellerRepository;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        if(appUserRepository.count()<1){
+        if(userRepository.count()<1){
             PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-            AppUsers appUser = new AppUsers();
-            appUser.setEMAIL("harsh.yadav@tothenew.com");
-            appUser.setFIRST_Name("Harsh");
-            appUser.setMIDDLE_Name("Kumar");
-            appUser.setLAST_Name("Yadav");
-            appUser.setPASSWORD(passwordEncoder.encode("savage"));
+            Role roleAdmin = new Role(1,"ROLE_ADMIN");
+            roleRepository.save(roleAdmin);
+            Role roleSeller = new Role(2,"ROLE_SELLER");
+            roleRepository.save(roleSeller);
+            Role roleCustomer = new Role(3,"ROLE_CUSTOMER");
+            roleRepository.save(roleCustomer);
+
+            Users appUser = new Users();
+            appUser.setEmail("harsh.yadav@tothenew.com");
+            appUser.setFirstName("Harsh");
+            appUser.setMiddleName("Kumar");
+            appUser.setLastName("Yadav");
+            appUser.setPassword(passwordEncoder.encode("savage"));
+            appUser.setActive(true);
+            appUser.setDeleted(false);
 
             List<Role> roleList = new ArrayList<>();
-            Role role1 = new Role();
-            role1.setAUTHORITY("ADMIN");
-            roleList.add(role1);
-            Role role2 = new Role();
-            role2.setAUTHORITY("USER");
-            roleList.add(role2);
+            roleList.add(roleAdmin);
             appUser.setRoleList(roleList);
 
-            appUserRepository.save(appUser);
+            Sellers seller = new Sellers();
+            seller.setEmail("Kshitiz.seller@gmail.com");
+            seller.setFirstName("Kshitiz");
+            seller.setLastName("Gupta");
+            seller.setPassword(passwordEncoder.encode("password"));
+            seller.setActive(true);
+            seller.setDeleted(false);
+            seller.setCompanyContact("Company Contact");
+            seller.setCompanyName("Company Name");
+            seller.setGst("GST");
 
-            System.out.println("Total users saved::"+appUserRepository.count());
+            List<Role> sellerRoleList = new ArrayList<>();
+            sellerRoleList.add(roleSeller);
+            seller.setRoleList(sellerRoleList);
 
+            Customers customer = new Customers();
+            customer.setEmail("Smarth.customer@gmail.com");
+            customer.setFirstName("Smarth");
+            customer.setMiddleName("");
+            customer.setLastName("Vaish");
+            customer.setPassword(passwordEncoder.encode("password"));
+            customer.setActive(true);
+            customer.setDeleted(false);
+            customer.setContact("Customer Contact");
 
+            List<Role> customerRoleList = new ArrayList<>();
+            customerRoleList.add(roleCustomer);
+            customer.setRoleList(customerRoleList);
+
+            userRepository.save(appUser);
+            sellerRepository.save(seller);
+            customerRepository.save(customer);
+
+            System.out.println("Total users saved::"+ userRepository.count());
         }
     }
 }

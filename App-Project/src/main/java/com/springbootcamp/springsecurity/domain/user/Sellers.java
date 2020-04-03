@@ -8,10 +8,10 @@ import java.util.List;
 @Entity
 @Table(name = "SELLERS")
 @PrimaryKeyJoinColumn(name = "USER_ID")
-public class Sellers extends AppUsers {
-    private String GST;
-    private String COMPANY_CONTACT;
-    private String COMPANY_NAME;
+public class Sellers extends Users {
+    private String gst;
+    private String companyContact;
+    private String companyName;
 
     @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)
     private List<Products> productsList;
@@ -24,27 +24,27 @@ public class Sellers extends AppUsers {
         this.productsList = productsList;
     }
 
-    public String getGST() {
-        return GST;
+    public String getGst() {
+        return gst;
     }
 
-    public void setGST(String GST) {
-        this.GST = GST;
+    public void setGst(String gst) {
+        this.gst = gst;
     }
 
-    public String getCOMPANY_CONTACT() {
-        return COMPANY_CONTACT;
+    public String getCompanyContact() {
+        return companyContact;
     }
 
-    public void setCOMPANY_CONTACT(String COMPANY_CONTACT) {
-        this.COMPANY_CONTACT = COMPANY_CONTACT;
+    public void setCompanyContact(String companyContact) {
+        this.companyContact = companyContact;
     }
 
-    public String getCOMPANY_NAME() {
-        return COMPANY_NAME;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setCOMPANY_NAME(String COMPANY_NAME) {
-        this.COMPANY_NAME = COMPANY_NAME;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }

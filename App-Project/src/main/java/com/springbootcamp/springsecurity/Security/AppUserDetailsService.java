@@ -1,6 +1,5 @@
-package com.springbootcamp.springsecurity;
+package com.springbootcamp.springsecurity.Security;
 
-import com.springbootcamp.springsecurity.dao.AppUsersDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,7 +14,7 @@ public class AppUserDetailsService implements UserDetailsService {
     PasswordEncoder passwordEncoder;
 
     @Autowired
-    AppUsersDao appUsersDao;
+    UsersDao appUsersDao;
 
 
     @Override

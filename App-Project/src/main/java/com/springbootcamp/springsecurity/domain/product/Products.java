@@ -14,22 +14,22 @@ public class Products{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
+    private Integer id;
 
     @NotNull
     @Size(max = 50)
-    private String NAME;
+    private String name;
 
     @NotNull
-    private String DESCRIPTION;
+    private String description;
 
-    private boolean IS_CANCELLABLE;
-    private boolean IS_RETURNABLE;
+    private boolean isCancellable;
+    private boolean isReturnable;
 
     @Size(max = 25)
     @NotNull
-    private String BRAND;
-    private boolean IS_ACTIVE;
+    private String brand;
+    private boolean isActive;
 
     @ManyToOne
     @JoinColumn(name = "CATEGORY_ID",nullable = false)
@@ -59,60 +59,60 @@ public class Products{
     @JoinColumn(name ="SELLER_USER_ID",nullable = false)
     private Sellers seller;
 
-    public Integer getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNAME() {
-        return NAME;
+    public String getName() {
+        return name;
     }
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDESCRIPTION() {
-        return DESCRIPTION;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDESCRIPTION(String DESCRIPTION) {
-        this.DESCRIPTION = DESCRIPTION;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public boolean isIS_CANCELLABLE() {
-        return IS_CANCELLABLE;
+    public boolean isCancellable() {
+        return isCancellable;
     }
 
-    public void setIS_CANCELLABLE(boolean IS_CANCELLABLE) {
-        this.IS_CANCELLABLE = IS_CANCELLABLE;
+    public void setCancellable(boolean cancellable) {
+        isCancellable = cancellable;
     }
 
-    public boolean isIS_RETURNABLE() {
-        return IS_RETURNABLE;
+    public boolean isReturnable() {
+        return isReturnable;
     }
 
-    public void setIS_RETURNABLE(boolean IS_RETURNABLE) {
-        this.IS_RETURNABLE = IS_RETURNABLE;
+    public void setReturnable(boolean returnable) {
+        isReturnable = returnable;
     }
 
-    public String getBRAND() {
-        return BRAND;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setBRAND(String BRAND) {
-        this.BRAND = BRAND;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public boolean isIS_ACTIVE() {
-        return IS_ACTIVE;
+    public boolean isActive() {
+        return isActive;
     }
 
-    public void setIS_ACTIVE(boolean IS_ACTIVE) {
-        this.IS_ACTIVE = IS_ACTIVE;
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     public Sellers getSeller() {

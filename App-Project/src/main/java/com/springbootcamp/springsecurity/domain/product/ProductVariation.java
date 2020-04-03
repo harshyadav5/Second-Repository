@@ -15,15 +15,16 @@ public class ProductVariation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
+    private Integer id;
 
     @NotNull
-    private Integer  QUANTITY_AVAILABLE;
+    private Integer  quantityAvailable;
 
     @NotNull
-    private Integer PRICE;
+    private Integer price;
     @Size(max = 100)
-    private String PRIMARY_IMAGE_NAME;
+    private String primaryImageName;
+    private String metadata;;
 
     @OneToMany(mappedBy = "productVariation",cascade = CascadeType.ALL)
     private List<Carts> cartsList;
@@ -59,35 +60,43 @@ public class ProductVariation {
         this.product = product;
     }
 
-    public Integer getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getQUANTITY_AVAILABLE() {
-        return QUANTITY_AVAILABLE;
+    public Integer getQuantityAvailable() {
+        return quantityAvailable;
     }
 
-    public void setQUANTITY_AVAILABLE(Integer QUANTITY_AVAILABLE) {
-        this.QUANTITY_AVAILABLE = QUANTITY_AVAILABLE;
+    public void setQuantityAvailable(Integer quantityAvailable) {
+        this.quantityAvailable = quantityAvailable;
     }
 
-    public Integer getPRICE() {
-        return PRICE;
+    public Integer getPrice() {
+        return price;
     }
 
-    public void setPRICE(Integer PRICE) {
-        this.PRICE = PRICE;
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
-    public String getPRIMARY_IMAGE_NAME() {
-        return PRIMARY_IMAGE_NAME;
+    public String getPrimaryImageName() {
+        return primaryImageName;
     }
 
-    public void setPRIMARY_IMAGE_NAME(String PRIMARY_IMAGE_NAME) {
-        this.PRIMARY_IMAGE_NAME = PRIMARY_IMAGE_NAME;
+    public void setPrimaryImageName(String primaryImageName) {
+        this.primaryImageName = primaryImageName;
+    }
+
+    public String getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(String metadata) {
+        this.metadata = metadata;
     }
 }

@@ -10,10 +10,9 @@ import javax.validation.constraints.Size;
 @PrimaryKeyJoinColumn(name = "PRODUCT_ID")
 public class ProductReviews extends Products {
 
-    private String REVIEW;
+    private String review;
 
-    @Size(max = 25)
-    private String RATING;
+    private Double rating;      //Double
 
     @ManyToOne
     @JoinColumn(name = "CUSTOMER_USER_ID",nullable = false)
@@ -27,19 +26,19 @@ public class ProductReviews extends Products {
         this.customer = customer;
     }
 
-    public String getREVIEW() {
-        return REVIEW;
+    public String getReview() {
+        return review;
     }
 
-    public void setREVIEW(String REVIEW) {
-        this.REVIEW = REVIEW;
+    public void setReview(String review) {
+        this.review = review;
     }
 
-    public String getRATING() {
-        return RATING;
+    public Double getRating() {
+        return rating;
     }
 
-    public void setRATING(String RATING) {
-        this.RATING = RATING;
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 }

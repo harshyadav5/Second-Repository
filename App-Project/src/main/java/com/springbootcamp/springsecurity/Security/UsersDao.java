@@ -1,10 +1,8 @@
-package com.springbootcamp.springsecurity.dao;
+package com.springbootcamp.springsecurity.Security;
 
-import com.springbootcamp.springsecurity.AppUser;
-import com.springbootcamp.springsecurity.GrantAuthorityImpl;
 import com.springbootcamp.springsecurity.domain.Role;
-import com.springbootcamp.springsecurity.domain.user.AppUsers;
-import com.springbootcamp.springsecurity.repository.AppUserRepository;
+import com.springbootcamp.springsecurity.domain.user.Users;
+import com.springbootcamp.springsecurity.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class AppUsersDao {
+public class UsersDao {
     @Autowired
-    AppUserRepository appUserRepository;
+    UserRepository userRepository;
 
     public AppUser loadUserByUsername(String username) {
-        AppUsers user = appUserRepository.findByEMAIL(username);
+        Users user = userRepository.findByEmail(username);
         List<GrantAuthorityImpl> grantAuthorityList = new ArrayList<>();
         List<Role> roleList = user.getRoleList();
 
         roleList.forEach(role ->
-        {grantAuthorityList.add(new GrantAuthorityImpl(role.getAUTHORITY()));
+        {grantAuthorityList.add(new GrantAuthorityImpl(role.getAuthority()));
         }
         );
         if (username != null) {
-            return  new AppUser(user.getEMAIL(),
-                    user.getPASSWORD(),
+            return  new AppUser(user.getEmail(),
+                    user.getPassword(),
                     grantAuthorityList);
         }
         else {

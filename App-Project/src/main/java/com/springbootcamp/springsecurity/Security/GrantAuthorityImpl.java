@@ -1,4 +1,4 @@
-package com.springbootcamp.springsecurity;
+package com.springbootcamp.springsecurity.Security;
 
 import org.springframework.security.core.GrantedAuthority;
 

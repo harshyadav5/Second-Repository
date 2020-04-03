@@ -11,11 +11,11 @@ public class Categories {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
+    private Integer id;
 
     @NotNull
     @Size(max = 50)
-    private String  NAME;
+    private String  name;
 
     @OneToMany(mappedBy = "productCategory",cascade = CascadeType.ALL)
     private List<Products> productList;
@@ -28,19 +28,19 @@ public class Categories {
         this.productList = productList;
     }
 
-    public Integer getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNAME() {
-        return NAME;
+    public String getName() {
+        return name;
     }
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME;
+    public void setName(String name) {
+        this.name = name;
     }
 }

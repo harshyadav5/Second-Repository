@@ -9,10 +9,10 @@ import javax.persistence.*;
 public class OrderProducts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
-    private Integer QUANTITY;
-    private Integer PRICE;
-    private String PRODUCT_VARIATION_METADATA;
+    private Integer id;
+    private Integer quantity;
+    private Integer price;
+    private String productVariationMetadata;
 
     @ManyToOne
     @JoinColumn(name = "ORDER_ID",nullable = false)
@@ -37,35 +37,35 @@ public class OrderProducts {
         this.orders = orders;
     }
 
-    public Integer getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getQUANTITY() {
-        return QUANTITY;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setQUANTITY(Integer QUANTITY) {
-        this.QUANTITY = QUANTITY;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
-    public Integer getPRICE() {
-        return PRICE;
+    public Integer getPrice() {
+        return price;
     }
 
-    public void setPRICE(Integer PRICE) {
-        this.PRICE = PRICE;
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
-    public String getPRODUCT_VARIATION_METADATA() {
-        return PRODUCT_VARIATION_METADATA;
+    public String getProductVariationMetadata() {
+        return productVariationMetadata;
     }
 
-    public void setPRODUCT_VARIATION_METADATA(String PRODUCT_VARIATION_METADATA) {
-        this.PRODUCT_VARIATION_METADATA = PRODUCT_VARIATION_METADATA;
+    public void setProductVariationMetadata(String productVariationMetadata) {
+        this.productVariationMetadata = productVariationMetadata;
     }
 }

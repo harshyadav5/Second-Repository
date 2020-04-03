@@ -1,6 +1,5 @@
 package com.springbootcamp.springsecurity.domain;
-
-import com.springbootcamp.springsecurity.domain.user.AppUsers;
+import com.springbootcamp.springsecurity.domain.user.Users;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -11,44 +10,55 @@ import java.util.List;
 @Table(name = "ROLE")
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
-    private String AUTHORITY;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private String authority;
 
 
     @ManyToMany(mappedBy = "roleList",fetch = FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
-    private List<AppUsers> appUsersList;
+    private List<Users> UsersList;
+//    @Fetch(value = FetchMode.SUBSELECT)
 
-    public List<AppUsers> getAppUsersList() {
-        return appUsersList;
+    public List<Users> getUsersList() {
+        return UsersList;
     }
 
-    public void setAppUsersList(List<AppUsers> appUsersList) {
-        this.appUsersList = appUsersList;
+    public void setUsersList(List<Users> appUsersList) {
+        this.UsersList = UsersList;
     }
 
-    public Integer getID() {
-        return ID;
+    public  Role(){
+
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public Role(Integer id, String authority) {
+        this.id = id;
+        this.authority = authority;
     }
 
-    public String getAUTHORITY() {
-        return AUTHORITY;
+    public Integer getId() {
+        return id;
     }
 
-    public void setAUTHORITY(String AUTHORITY) {
-        this.AUTHORITY = AUTHORITY;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 
     @Override
     public String toString() {
         return "Role{" +
-                "ID=" + ID +
-                ", AUTHORITY='" + AUTHORITY + '\'' +
+                "id=" + id +
+                ", authority='" + authority + '\'' +
+                ", appUsersList=" + UsersList +
                 '}';
     }
 }

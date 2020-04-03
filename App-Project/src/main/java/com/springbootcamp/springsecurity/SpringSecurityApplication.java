@@ -33,16 +33,6 @@ public class SpringSecurityApplication {
 		return "index";
 	}
 
-	@GetMapping("/admin/home")
-	public String adminHome(){
-		return "Admin home";
-	}
-
-	@GetMapping("/user/home")
-	public String userHome(){
-		return "User home";
-	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(SpringSecurityApplication.class, args);
 	}
