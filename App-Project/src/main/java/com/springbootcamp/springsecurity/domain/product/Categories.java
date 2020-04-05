@@ -3,11 +3,12 @@ package com.springbootcamp.springsecurity.domain.product;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "CATEGORY")
-public class Categories {
+public class Categories implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,15 +18,15 @@ public class Categories {
     @Size(max = 50)
     private String  name;
 
-    @OneToMany(mappedBy = "productCategory",cascade = CascadeType.ALL)
-    private List<Products> productList;
+    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Products> productsList;
 
-    public List<Products> getProductList() {
-        return productList;
+    public List<Products> getProductsList() {
+        return productsList;
     }
 
-    public void setProductList(List<Products> productList) {
-        this.productList = productList;
+    public void setProductsList(List<Products> productsList) {
+        this.productsList = productsList;
     }
 
     public Integer getId() {
@@ -42,5 +43,14 @@ public class Categories {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Categories{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", productsList=" + productsList +
+                '}';
     }
 }

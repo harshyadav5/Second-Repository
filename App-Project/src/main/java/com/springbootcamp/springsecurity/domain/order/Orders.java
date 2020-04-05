@@ -37,7 +37,7 @@ public class Orders {
     }
 
     @ManyToOne
-    @JoinColumn(name = "CUSTOMER_USER_ID",nullable = false)
+    @JoinColumn(name = "CUSTOMER_USER_ID")
     private Customers customer;
 
     public Customers getCustomer() {
@@ -46,6 +46,25 @@ public class Orders {
 
     public void setCustomer(Customers customer) {
         this.customer = customer;
+    }
+
+    public Orders(){
+
+    }
+
+    public Orders(Integer id, Integer amountPaid, Date date_created, String paymentMethod, String customerAddressCity,
+                  String customerAddressState, String customerAddressCountry,
+                  String customerAddressAddressLine, Integer customerAddressZipCode, String customerAddressLabel) {
+        this.id = id;
+        this.amountPaid = amountPaid;
+        this.date_created = date_created;
+        this.paymentMethod = paymentMethod;
+        this.customerAddressCity = customerAddressCity;
+        this.customerAddressState = customerAddressState;
+        this.customerAddressCountry = customerAddressCountry;
+        this.customerAddressAddressLine = customerAddressAddressLine;
+        this.customerAddressZipCode = customerAddressZipCode;
+        this.customerAddressLabel = customerAddressLabel;
     }
 
     public Integer getId() {

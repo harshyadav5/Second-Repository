@@ -38,6 +38,7 @@ public class CustomerService {
         registerCustomer.setLastName(customerCO.getLastName());
         registerCustomer.setPassword(passwordEncoder.encode(customerCO.getPassword()));
         registerCustomer.setContact(customerCO.getContact());
+
         List<Role> roleList = new ArrayList<>();
 
         roleList.add(roleRepository.findByAuthority("ROLE_CUSTOMER"));
@@ -51,9 +52,11 @@ public class CustomerService {
     public CustomerDto getCustomer(Integer id){
 
         Optional<Customers> optional = customerRepository.findById(id);
+
         if(!optional.isPresent()){
             throw new AccountDoesNotExist("Invalid Account Credentials");
         }
+
         Customers customer = optional.get();
         CustomerDto customerDto = new CustomerDto();
         customerDto.setId(customer.getId());
@@ -61,6 +64,9 @@ public class CustomerService {
         customerDto.setFirstName(customer.getFirstName());
         if(customer.getMiddleName() != null){
             customerDto.setMiddleName(customer.getMiddleName());
+        }
+        else{
+            customerDto.setMiddleName("");
         }
         customerDto.setLastName(customer.getLastName());
         customerDto.setContact(customer.getContact());
@@ -79,17 +85,10 @@ public class CustomerService {
 
     public CustomerDto updateCustomer(Integer id,CustomerCO customerCO){
 
-//        Optional<Customers> optional = customerRepository.findById(id);
-
         if (!customerRepository.findById(id).isPresent()){
             throw new AccountDoesNotExist("Invalid Account Credentials");
         }
 
-//        if(!optional.isPresent()){
-//            throw new AccountDoesNotExist("Invalid Account Credentials");
-//        }
-//
-//        Customers customer = optional.get();
         Customers customer = customerRepository.findById(id).get();
             BeanUtils.copyProperties(customerCO, customer);
             customerRepository.save(customer);
@@ -98,6 +97,7 @@ public class CustomerService {
     }
 
     public Map<String,Boolean> deleteCustomer(Integer id){
+
         Map<String,Boolean> map = new HashMap<>();
         Optional<Customers> optional = customerRepository.findById(id);
 

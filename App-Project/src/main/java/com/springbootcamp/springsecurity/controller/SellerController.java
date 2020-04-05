@@ -3,30 +3,52 @@ package com.springbootcamp.springsecurity.controller;
 import com.springbootcamp.springsecurity.Exception.SellerAlreadyExistException;
 import com.springbootcamp.springsecurity.co.SellerCO;
 import com.springbootcamp.springsecurity.domain.user.Sellers;
+import com.springbootcamp.springsecurity.dto.ProductDto;
+import com.springbootcamp.springsecurity.dto.SellerDto;
 import com.springbootcamp.springsecurity.repository.SellerRepository;
 import com.springbootcamp.springsecurity.services.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/seller")
 public class SellerController {
 
-//    @GetMapping("/{email}")
-    @Autowired
-    SellerRepository sellerRepository;
     @Autowired
     SellerService sellerService;
-    @PostMapping("/seller")
-    public String registerSeller(@RequestBody SellerCO sellerCO, WebRequest webRequest){
-        Sellers seller = sellerRepository.findByEmail(sellerCO.getEmail());
-        if (seller != null){
-            throw new SellerAlreadyExistException("Account Already Exist With This Email Id");
-        }
-        else {
-            sellerService.registerSeller(sellerCO);
-        }
-        return "Seller Successfully Registered";
+
+    @GetMapping("/{id}")
+    public SellerDto getSeller(@PathVariable Integer id){
+        return sellerService.getSeller(id);
     }
+
+    @PostMapping("/")
+    public SellerDto registerSeller(@RequestBody SellerCO sellerCO, WebRequest webRequest){
+       return sellerService.registerSeller(sellerCO);
+    }
+
+    @PutMapping("/{id}")
+    public SellerDto updateSeller(@PathVariable Integer id,@RequestBody SellerCO sellerCO,WebRequest webRequest){
+        return sellerService.updateSeller(id,sellerCO);
+    }
+
+    @DeleteMapping("/{id}")
+    public Map<String,Boolean> deleteSeller(@PathVariable Integer id){
+        return sellerService.deleteSeller(id);
+    }
+
+    @GetMapping("/")
+    public List<SellerDto> getAllSeller(){
+       return sellerService.getAllSeller();
+    }
+
+    @GetMapping("/product/{id}")
+    public List<ProductDto> getAllProductsOfSeller(@PathVariable Integer id){
+        return sellerService.getAllProductsOfSeller(id);
+    }
+
 }

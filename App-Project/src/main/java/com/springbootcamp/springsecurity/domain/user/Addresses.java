@@ -1,7 +1,5 @@
 package com.springbootcamp.springsecurity.domain.user;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 

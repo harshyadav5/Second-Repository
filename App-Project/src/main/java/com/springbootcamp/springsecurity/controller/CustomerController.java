@@ -22,6 +22,7 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     public CustomerDto getCustomer(@PathVariable Integer id){
+
         return  customerService.getCustomer(id);
     }
 
@@ -36,7 +37,7 @@ public class CustomerController {
     }
 
     @DeleteMapping("/{id}")
-    public Map<String,Boolean> deleteUser(@PathVariable Integer id){
+    public Map<String,Boolean> deleteCustomer(@PathVariable Integer id){
        return customerService.deleteCustomer(id);
     }
 

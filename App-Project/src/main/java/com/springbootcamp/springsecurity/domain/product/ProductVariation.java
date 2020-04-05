@@ -49,7 +49,7 @@ public class ProductVariation {
     }
 
     @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID",nullable = false)
+    @JoinColumn(name = "product_id")
     private Products product;
 
     public Products getProduct() {
@@ -58,6 +58,18 @@ public class ProductVariation {
 
     public void setProduct(Products product) {
         this.product = product;
+    }
+
+    public ProductVariation(){
+
+    }
+
+    public ProductVariation(@NotNull Integer quantityAvailable, @NotNull Integer price,
+                            @Size(max = 100) String primaryImageName, String metadata) {
+        this.quantityAvailable = quantityAvailable;
+        this.price = price;
+        this.primaryImageName = primaryImageName;
+        this.metadata = metadata;
     }
 
     public Integer getId() {

@@ -1,5 +1,6 @@
 package com.springbootcamp.springsecurity.dto;
 
+
 import javax.validation.constraints.NotEmpty;
 
 public class CustomerDto extends UserDto {
@@ -8,7 +9,8 @@ public class CustomerDto extends UserDto {
     public CustomerDto(){
 
     }
-    public CustomerDto(Integer id, String email, String firstName, String middleName, String lastName, String contact){
+    public CustomerDto(Integer id, String email, String firstName, String middleName, String lastName,
+                       String contact){
         this.setId(id);
         this.setEmail(email);
         this.setFirstName(firstName);

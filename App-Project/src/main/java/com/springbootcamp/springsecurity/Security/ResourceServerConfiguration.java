@@ -51,7 +51,9 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(final HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/customer/").anonymous()
+                .antMatchers("/product/","/product/{id}").anonymous()
+                .antMatchers("/cart/").anonymous()
+                .antMatchers("/order/").anonymous()
                 .antMatchers("/admin/home").hasAnyRole("ADMIN")         //kon kya use kr skta hai
                 .antMatchers("/doLogout").hasAnyRole("ADMIN","CUSTOMER","SELLER")
                 .antMatchers("/customer/{id}").hasAnyRole("CUSTOMER","ADMIN")

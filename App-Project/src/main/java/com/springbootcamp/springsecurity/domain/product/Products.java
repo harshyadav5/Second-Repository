@@ -1,16 +1,18 @@
 package com.springbootcamp.springsecurity.domain.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.springbootcamp.springsecurity.domain.user.Sellers;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "PRODUCT")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Products{
+public class Products implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,15 +34,15 @@ public class Products{
     private boolean isActive;
 
     @ManyToOne
-    @JoinColumn(name = "CATEGORY_ID",nullable = false)
-    private Categories productCategory;
+    @JoinColumn(name = "category_id")
+    private Categories category;
 
-    public Categories getProductCategory() {
-        return productCategory;
+    public Categories getCategory() {
+        return category;
     }
 
-    public void setProductCategory(Categories productCategory) {
-        this.productCategory = productCategory;
+    public void setCategory(Categories category) {
+        this.category = category;
     }
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
@@ -54,10 +56,28 @@ public class Products{
         this.productVariationList = productVariationList;
     }
 
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    private List<ProductReviews> productReviewsList;
+
+    public List<ProductReviews> getProductReviewsList() {
+        return productReviewsList;
+    }
+
+    public void setProductReviewsList(List<ProductReviews> productReviewsList) {
+        this.productReviewsList = productReviewsList;
+    }
 
     @ManyToOne
-    @JoinColumn(name ="SELLER_USER_ID",nullable = false)
+    @JoinColumn(name = "seller_user_id")
     private Sellers seller;
+
+    public Sellers getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Sellers seller) {
+        this.seller = seller;
+    }
 
     public Integer getId() {
         return id;
@@ -115,11 +135,4 @@ public class Products{
         isActive = active;
     }
 
-    public Sellers getSeller() {
-        return seller;
-    }
-
-    public void setSeller(Sellers seller) {
-        this.seller = seller;
-    }
 }

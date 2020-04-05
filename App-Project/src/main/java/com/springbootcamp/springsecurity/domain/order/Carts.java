@@ -7,8 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "CART")
-//@PrimaryKeyJoinColumn(name = "CUSTOMER_USER_ID")
-public class Carts {
+public class Carts  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -27,6 +26,7 @@ public class Carts {
         this.productVariation = productVariation;
     }
 
+//    @Id
     @OneToOne
     @JoinColumn(name = "CUSTOMER_USER_ID")
     private Customers customer;

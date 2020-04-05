@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "USERS")
+@Table(name = "USER")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Users {
     @Id

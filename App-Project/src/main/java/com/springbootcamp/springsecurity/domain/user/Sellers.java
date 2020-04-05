@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "SELLERS")
+@Table(name = "SELLER")
 @PrimaryKeyJoinColumn(name = "USER_ID")
 public class Sellers extends Users {
     private String gst;
@@ -46,5 +46,15 @@ public class Sellers extends Users {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
+    }
+
+    @Override
+    public String toString() {
+        return "Sellers{" +
+                "gst='" + gst + '\'' +
+                ", companyContact='" + companyContact + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", productsList=" + productsList +
+                '}';
     }
 }
