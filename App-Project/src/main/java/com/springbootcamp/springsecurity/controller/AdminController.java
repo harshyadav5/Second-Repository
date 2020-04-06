@@ -36,12 +36,12 @@ public class AdminController {
     }
 
     @PutMapping("/activationStatus/{id}")
-    public String changeStatusOfUser(@PathVariable Integer id){
+    public String changeStatusOfUser(@PathVariable Long id){
         return userService.changeActivationStatusOfUser(id);
     }
 
     @PutMapping("/changeRole/{role}/{id}")
-    public String changeRoleOfUser(@PathVariable Integer id,String role){
+    public String changeRoleOfUser(@PathVariable Long id,String role){
        return userService.changeRoleOfUser(id,role);
     }
 
@@ -50,7 +50,7 @@ public class AdminController {
         return productService.getProductList();
     }
     @PutMapping("/activationStatusOfProduct/{id}")
-    public String changeActivationStatusOfProduct(@PathVariable Integer id){
+    public String changeActivationStatusOfProduct(@PathVariable Long id){
         return productService.changeActivationStatusOfProduct(id);
     }
 }

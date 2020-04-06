@@ -3,7 +3,7 @@ package com.springbootcamp.springsecurity.dto;
 import java.util.Date;
 
 public class OrderDto {
-    private Integer id;
+    private Long id;
     private Integer amountPaid;
     private Date dateCreated;
     private String paymentMethod;
@@ -17,7 +17,7 @@ public class OrderDto {
     public OrderDto(){
 
     }
-    public OrderDto(Integer id, Integer amountPaid, Date date_created, String paymentMethod,
+    public OrderDto(Long id, Integer amountPaid, Date date_created, String paymentMethod,
                     String customerAddressAddressLine, String customerAddressCity, String customerAddressState,
                     String customerAddressCountry, String customerAddressLabel, Integer customerAddressZipCode) {
         this.id = id;
@@ -33,11 +33,11 @@ public class OrderDto {
 
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,22 +1,41 @@
 package com.springbootcamp.springsecurity.co;
 
 import com.springbootcamp.springsecurity.annotation.PasswordMatcher;
+import com.springbootcamp.springsecurity.annotation.ValidEmail;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @PasswordMatcher
 public class UserCO {
+    @ValidEmail
+    @NotNull
     @NotEmpty
     private String email;
+    @NotNull
     @NotEmpty
     private String firstName;
     private String middleName;
+    @NotNull
     @NotEmpty
     private String lastName;
+    @NotNull
     @NotEmpty
     private String password;
+    @NotNull
     @NotEmpty
     private String confirmPassword;
+
+    public UserCO(@NotNull @NotEmpty String email, @NotNull @NotEmpty String firstName, String middleName,
+                  @NotNull @NotEmpty String lastName, @NotNull @NotEmpty String password,
+                  @NotNull @NotEmpty String confirmPassword) {
+        this.email = email;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+    }
 
     public String getEmail() {
         return email;

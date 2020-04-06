@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class ProductDto {
-    private Integer id;
+    private Long id;
 
     @NotNull
     @Size(max = 50)
@@ -25,7 +25,7 @@ public class ProductDto {
 
     }
 
-    public ProductDto(Integer id, @NotNull @Size(max = 50) String name, @NotNull String description,
+    public ProductDto(Long id, @NotNull @Size(max = 50) String name, @NotNull String description,
                       boolean isCancellable, boolean isReturnable, @Size(max = 25) @NotNull String brand,
                       boolean isActive) {
         this.id = id;
@@ -37,11 +37,11 @@ public class ProductDto {
         this.isActive = isActive;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

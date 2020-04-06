@@ -10,7 +10,7 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public String changeActivationStatusOfUser(Integer id){
+    public String changeActivationStatusOfUser(Long id){
         Users user= userRepository.findById(id).get();
         if (user.getActive() == true){
             user.setActive(false);
@@ -21,7 +21,7 @@ public class UserService {
         userRepository.save(user);
         return "Activation Status Is Changed";
     }
-    public String changeRoleOfUser(Integer id,String role){
+    public String changeRoleOfUser(Long id,String role){
         Users user= userRepository.findById(id).get();
         user.getRoleList().get(0).setAuthority(role);
         userRepository.save(user);

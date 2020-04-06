@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class OrderProducts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private Integer quantity;
     private Integer price;
     private String productVariationMetadata;
@@ -37,11 +37,11 @@ public class OrderProducts {
         this.orders = orders;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

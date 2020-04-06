@@ -58,11 +58,11 @@ public class Bootstrap implements ApplicationRunner {
         if(userRepository.count()<1){
             PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-            Role roleAdmin = new Role( 1,"ROLE_ADMIN");
+            Role roleAdmin = new Role((long) 1,"ROLE_ADMIN");
             roleRepository.save(roleAdmin);
-            Role roleSeller = new Role( 2,"ROLE_SELLER");
+            Role roleSeller = new Role((long) 2,"ROLE_SELLER");
             roleRepository.save(roleSeller);
-            Role roleCustomer = new Role( 3,"ROLE_CUSTOMER");
+            Role roleCustomer = new Role((long) 3,"ROLE_CUSTOMER");
             roleRepository.save(roleCustomer);
 
             Users appUser = new Users();
@@ -161,8 +161,8 @@ public class Bootstrap implements ApplicationRunner {
         }
         if (cartRepository.count() < 1){
             Carts cart = new Carts();
-            cart.setProductVariation(productVariationRepository.findById(1).get());
-            cart.setCustomer(customerRepository.findById(3).get());
+            cart.setProductVariation(productVariationRepository.findById((long) 1).get());
+            cart.setCustomer(customerRepository.findById((long) 3).get());
             cart.setWishList(true);
             cart.setQuantity(2);
             cartRepository.save(cart);

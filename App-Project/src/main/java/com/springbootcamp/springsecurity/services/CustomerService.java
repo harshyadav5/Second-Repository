@@ -49,7 +49,7 @@ public class CustomerService {
         CustomerDto customerDto = getCustomer(registerCustomer.getId());
         return customerDto;
     }
-    public CustomerDto getCustomer(Integer id){
+    public CustomerDto getCustomer(Long id){
 
         Optional<Customers> optional = customerRepository.findById(id);
 
@@ -83,7 +83,7 @@ public class CustomerService {
         return customerDtoList;
     }
 
-    public CustomerDto updateCustomer(Integer id,CustomerCO customerCO){
+    public CustomerDto updateCustomer(Long id,CustomerCO customerCO){
 
         if (!customerRepository.findById(id).isPresent()){
             throw new AccountDoesNotExist("Invalid Account Credentials");
@@ -96,7 +96,7 @@ public class CustomerService {
         return customerDto;
     }
 
-    public Map<String,Boolean> deleteCustomer(Integer id){
+    public Map<String,Boolean> deleteCustomer(Long id){
 
         Map<String,Boolean> map = new HashMap<>();
         Optional<Customers> optional = customerRepository.findById(id);

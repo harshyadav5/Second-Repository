@@ -21,12 +21,12 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping("/depth/{id}")
-    public DepthProductDto getProductDetails(@PathVariable Integer id){
+    public DepthProductDto getProductDetails(@PathVariable Long id){
 
         return productService.getDepthProduct(id);
     }
     @GetMapping("/{id}")
-    public ProductDto getProduct(@PathVariable Integer id){
+    public ProductDto getProduct(@PathVariable Long id){
         return productService.getProduct(id);
     }
 

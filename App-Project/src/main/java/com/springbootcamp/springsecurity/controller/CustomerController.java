@@ -21,7 +21,7 @@ public class CustomerController {
     CustomerService customerService;
 
     @GetMapping("/{id}")
-    public CustomerDto getCustomer(@PathVariable Integer id){
+    public CustomerDto getCustomer(@PathVariable Long id){
         return  customerService.getCustomer(id);
     }
 
@@ -31,12 +31,12 @@ public class CustomerController {
     }
 
     @PutMapping("/{id}")
-    public CustomerDto updateCustomer(@PathVariable Integer id,@RequestBody CustomerCO customerCO , WebRequest webRequest){
+    public CustomerDto updateCustomer(@PathVariable Long id,@RequestBody CustomerCO customerCO , WebRequest webRequest){
         return  customerService.updateCustomer(id,customerCO);
     }
 
     @DeleteMapping("/{id}")
-    public Map<String,Boolean> deleteCustomer(@PathVariable Integer id){
+    public Map<String,Boolean> deleteCustomer(@PathVariable Long id){
        return customerService.deleteCustomer(id);
     }
 

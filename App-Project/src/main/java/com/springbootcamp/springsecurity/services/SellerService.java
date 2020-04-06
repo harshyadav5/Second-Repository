@@ -29,7 +29,7 @@ public class SellerService {
     @Autowired
     RoleRepository roleRepository;
 
-    public SellerDto getSeller(Integer id){
+    public SellerDto getSeller(Long id){
         Sellers seller = sellerRepository.findById(id).get();
         return new SellerDto(seller.getId(),seller.getEmail(),seller.getFirstName(),seller.getMiddleName(),
                 seller.getLastName(),seller.getGst(),seller.getCompanyContact(),seller.getCompanyName());
@@ -51,7 +51,7 @@ public class SellerService {
         return getSeller(registerSeller.getId());
     }
 
-    public SellerDto updateSeller(Integer id,SellerCO sellerCO){
+    public SellerDto updateSeller(Long id,SellerCO sellerCO){
         if (!sellerRepository.findById(id).isPresent()){
             throw new AccountDoesNotExist("Invalid Account Credentials");
         }
@@ -68,7 +68,7 @@ public class SellerService {
         return getSeller(seller.getId());
     }
 
-    public Map<String,Boolean> deleteSeller(Integer id){
+    public Map<String,Boolean> deleteSeller(Long id){
 //        if (!sellerRepository.findById(id).isPresent()) {
 //            throw new AccountDoesNotExist("Invalid Account Credentials");
 //        }
@@ -92,7 +92,7 @@ public class SellerService {
         return sellerDtoList;
     }
 
-    public List<ProductDto> getAllProductsOfSeller(Integer id){
+    public List<ProductDto> getAllProductsOfSeller(Long id){
         Sellers seller = sellerRepository.findById(id).get();
         List<ProductDto> productDtoList = new ArrayList<>();
         List<Products> productsList= seller.getProductsList();

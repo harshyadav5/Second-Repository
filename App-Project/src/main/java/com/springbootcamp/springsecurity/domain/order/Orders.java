@@ -11,7 +11,7 @@ import java.util.List;
 public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private Integer amountPaid;
 
     @Temporal(TemporalType.DATE)
@@ -52,7 +52,7 @@ public class Orders {
 
     }
 
-    public Orders(Integer id, Integer amountPaid, Date date_created, String paymentMethod, String customerAddressCity,
+    public Orders(Long id, Integer amountPaid, Date date_created, String paymentMethod, String customerAddressCity,
                   String customerAddressState, String customerAddressCountry,
                   String customerAddressAddressLine, Integer customerAddressZipCode, String customerAddressLabel) {
         this.id = id;
@@ -67,11 +67,11 @@ public class Orders {
         this.customerAddressLabel = customerAddressLabel;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,10 +1,12 @@
 package com.springbootcamp.springsecurity.domain.user;
 
+import com.springbootcamp.springsecurity.annotation.ValidEmail;
 import com.springbootcamp.springsecurity.domain.Role;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.List;
 
 @Entity
@@ -13,7 +15,9 @@ import java.util.List;
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
+    @Email
+    @ValidEmail
     private String email;
     private String firstName;
     private String middleName;
@@ -48,11 +52,11 @@ public class Users {
         this.addressesList = addressesList;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

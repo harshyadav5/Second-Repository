@@ -18,7 +18,7 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
-    public DepthProductDto getDepthProduct(Integer id){
+    public DepthProductDto getDepthProduct(Long id){
         Products product = productRepository.findById(id).get();
 
         List<ProductReviews> productReviews =product.getProductReviewsList();
@@ -28,8 +28,8 @@ public class ProductService {
         productReviews.forEach(productReviews1 -> reviews.add(productReviews1.getReview()));
         productReviews.forEach(productReviews1 -> rating.add(productReviews1.getRating()));
         DepthProductDto depthProductDto = new DepthProductDto(product.getId(),product.getName(),
-                product.getProductVariationList().get(id).getPrimaryImageName(),product.getProductVariationList()
-                .get(id).getPrice(),reviews,rating, product.getSeller().getFirstName(),product.getSeller().getMiddleName(),
+                product.getProductVariationList().get(Math.toIntExact((id))).getPrimaryImageName(),product.getProductVariationList()
+                .get(Math.toIntExact(id)).getPrice(),reviews,rating, product.getSeller().getFirstName(),product.getSeller().getMiddleName(),
                 product.getSeller().getLastName(),
                 product.getSeller().getCompanyContact(),product.getSeller().getCompanyName(),
                 product.getSeller().getGst());
@@ -39,7 +39,7 @@ public class ProductService {
     }
 
 
-    public ProductDto getProduct(Integer id){
+    public ProductDto getProduct(Long id){
         Products product = productRepository.findById(id).get();
         ProductDto productDto = new ProductDto(product.getId(),product.getName(),product.getName(),
                 product.isCancellable(),product.isReturnable(),product.getBrand(),product.isActive());
@@ -55,7 +55,7 @@ public class ProductService {
         return productDtoList;
     }
 
-    public String changeActivationStatusOfProduct(Integer id){
+    public String changeActivationStatusOfProduct(Long id){
         Products product = productRepository.findById(id).get();
         if(product.isActive() == true){
             product.setActive(false);

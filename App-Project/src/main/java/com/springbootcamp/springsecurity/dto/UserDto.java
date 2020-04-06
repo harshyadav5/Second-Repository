@@ -6,7 +6,7 @@ import javax.validation.constraints.NotEmpty;
 
 public class UserDto {
     @NotEmpty
-    private Integer id;
+    private Long id;
     @NotEmpty
     private String email;
     @NotEmpty
@@ -25,7 +25,7 @@ public class UserDto {
 
     }
 
-    public UserDto(@NotEmpty Integer id, @NotEmpty String email, @NotEmpty String firstName, String middleName, @NotEmpty String lastName) {
+    public UserDto(@NotEmpty Long id, @NotEmpty String email, @NotEmpty String firstName, String middleName, @NotEmpty String lastName) {
         this.id = id;
         this.email = email;
         this.firstName = firstName;
@@ -33,11 +33,11 @@ public class UserDto {
         this.lastName = lastName;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

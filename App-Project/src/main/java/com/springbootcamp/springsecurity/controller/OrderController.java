@@ -18,7 +18,7 @@ public class OrderController {
     OrderService orderService;
 
     @GetMapping("/{id}")
-    public OrderDto getOrderDetails(@PathVariable Integer id){
+    public OrderDto getOrderDetails(@PathVariable Long id){
        return orderService.getOrderProduct(id);
     }
 
@@ -38,7 +38,7 @@ public class OrderController {
     }
 
     @DeleteMapping("/{id}")
-    public Map<String,Boolean> deleteOrder(@PathVariable Integer id){
+    public Map<String,Boolean> deleteOrder(@PathVariable Long id){
         return  orderService.removeOrder(id);
     }
 }

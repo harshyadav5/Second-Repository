@@ -17,7 +17,7 @@ public class OrderService {
     @Autowired
     CartRepository cartRepository;
 
-    public OrderDto getOrderProduct(Integer id){
+    public OrderDto getOrderProduct(Long id){
         Orders order= orderRepository.findById(id).get();
         return new OrderDto(order.getId(),order.getAmountPaid(), order.getDate_created(),order.getPaymentMethod(),
                 order.getCustomerAddressAddressLine(),order.getCustomerAddressCity(),order.getCustomerAddressState(),
@@ -66,7 +66,7 @@ public class OrderService {
         return getOrderProduct(updateOrder.getId());
     }
 
-    public Map<String,Boolean> removeOrder(Integer id){
+    public Map<String,Boolean> removeOrder(Long id){
         Map<String,Boolean> map = new HashMap<>();
         if (!orderRepository.findById(id).isPresent()){
             map.put("Deleted",false);

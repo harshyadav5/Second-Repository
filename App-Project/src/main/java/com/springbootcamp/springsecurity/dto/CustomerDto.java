@@ -9,7 +9,7 @@ public class CustomerDto extends UserDto {
     public CustomerDto(){
 
     }
-    public CustomerDto(Integer id, String email, String firstName, String middleName, String lastName,
+    public CustomerDto(Long id, String email, String firstName, String middleName, String lastName,
                        String contact){
         this.setId(id);
         this.setEmail(email);

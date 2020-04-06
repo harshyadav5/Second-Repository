@@ -1,16 +1,16 @@
 package com.springbootcamp.springsecurity.dto;
 
 public class CartDto {
-    private Integer cartProductId;
-    private Integer customerId;
+    private Long cartProductId;
+    private Long customerId;
     private Integer quantity;
     private boolean isWishList;
-    private Integer productVariationId;
+    private Long productVariationId;
 
     public CartDto(){
 
     }
-    public CartDto(Integer cartProductId, Integer quantity, boolean wishList, Integer customerId, Integer productVariationId) {
+    public CartDto(Long cartProductId, Integer quantity, boolean wishList, Long customerId, Long productVariationId) {
         this.cartProductId=cartProductId;
         this.quantity=quantity;
         this.isWishList=wishList;
@@ -18,20 +18,24 @@ public class CartDto {
         this.productVariationId=productVariationId;
     }
 
-    public Integer getCartProductId() {
+    public Long getCartProductId() {
         return cartProductId;
     }
 
-    public void setCartProductId(Integer cartProductId) {
+    public void setCartProductId(Long cartProductId) {
         this.cartProductId = cartProductId;
     }
 
-    public Integer getCustomerId() {
+    public Long getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Integer customerId) {
+    public void setCustomerId(Long customerId) {
         this.customerId = customerId;
+    }
+
+    public void setProductVariationId(Long productVariationId) {
+        this.productVariationId = productVariationId;
     }
 
     public Integer getQuantity() {
@@ -50,11 +54,7 @@ public class CartDto {
         isWishList = wishList;
     }
 
-    public Integer getProductVariationId() {
+    public Long getProductVariationId() {
         return productVariationId;
-    }
-
-    public void setProductVariationId(Integer productVariationId) {
-        this.productVariationId = productVariationId;
     }
 }

@@ -3,7 +3,7 @@ package com.springbootcamp.springsecurity.dto;
 import java.util.List;
 
 public class DepthProductDto  extends ProductDto{
-    private Integer id;
+    private Long id;
     private String productName;
     private String imageName;
     private Integer price;
@@ -18,7 +18,7 @@ public class DepthProductDto  extends ProductDto{
 
     }
 
-    public DepthProductDto(Integer id, String name, String primaryImageName, Integer price,
+    public DepthProductDto(Long id, String name, String primaryImageName, Integer price,
                            List<String> reviews, List<Double> rating, String firstName, String middleName,
                            String lastName, String companyContact, String companyName, String gst) {
 
@@ -34,11 +34,13 @@ public class DepthProductDto  extends ProductDto{
         this.gst=gst;
     }
 
-    public Integer getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    @Override
+    public void setId(Long id) {
         this.id = id;
     }
 

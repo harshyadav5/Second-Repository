@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Addresses {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String city;
     private String state;
     private String country;
@@ -28,11 +28,11 @@ public class Addresses {
         this.User = User;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

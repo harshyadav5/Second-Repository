@@ -22,7 +22,7 @@ public class SellerController {
     SellerService sellerService;
 
     @GetMapping("/{id}")
-    public SellerDto getSeller(@PathVariable Integer id){
+    public SellerDto getSeller(@PathVariable Long id){
         return sellerService.getSeller(id);
     }
 
@@ -32,12 +32,12 @@ public class SellerController {
     }
 
     @PutMapping("/{id}")
-    public SellerDto updateSeller(@PathVariable Integer id,@RequestBody SellerCO sellerCO,WebRequest webRequest){
+    public SellerDto updateSeller(@PathVariable Long id,@RequestBody SellerCO sellerCO,WebRequest webRequest){
         return sellerService.updateSeller(id,sellerCO);
     }
 
     @DeleteMapping("/{id}")
-    public Map<String,Boolean> deleteSeller(@PathVariable Integer id){
+    public Map<String,Boolean> deleteSeller(@PathVariable Long id){
         return sellerService.deleteSeller(id);
     }
 
@@ -47,7 +47,7 @@ public class SellerController {
     }
 
     @GetMapping("/product/{id}")
-    public List<ProductDto> getAllProductsOfSeller(@PathVariable Integer id){
+    public List<ProductDto> getAllProductsOfSeller(@PathVariable Long id){
         return sellerService.getAllProductsOfSeller(id);
     }
 
