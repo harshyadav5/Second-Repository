@@ -22,7 +22,6 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     public CustomerDto getCustomer(@PathVariable Integer id){
-
         return  customerService.getCustomer(id);
     }
 

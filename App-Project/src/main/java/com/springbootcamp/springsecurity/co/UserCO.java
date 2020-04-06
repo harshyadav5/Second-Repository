@@ -1,7 +1,10 @@
 package com.springbootcamp.springsecurity.co;
 
+import com.springbootcamp.springsecurity.annotation.PasswordMatcher;
+
 import javax.validation.constraints.NotEmpty;
 
+@PasswordMatcher
 public class UserCO {
     @NotEmpty
     private String email;

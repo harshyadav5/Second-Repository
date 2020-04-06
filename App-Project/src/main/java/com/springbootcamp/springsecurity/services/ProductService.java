@@ -6,7 +6,6 @@ import com.springbootcamp.springsecurity.domain.user.Customers;
 import com.springbootcamp.springsecurity.dto.CustomerDto;
 import com.springbootcamp.springsecurity.dto.DepthProductDto;
 import com.springbootcamp.springsecurity.dto.ProductDto;
-import com.springbootcamp.springsecurity.dto.SellerDto;
 import com.springbootcamp.springsecurity.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
