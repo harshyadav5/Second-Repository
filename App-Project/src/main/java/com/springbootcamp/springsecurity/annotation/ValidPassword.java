@@ -12,10 +12,10 @@ import static java.lang.annotation.ElementType.*;
 //@Target(ElementType.TYPE)   //ElementType.ANNOTATION_TYPE
 
 @Target({TYPE,FIELD,ANNOTATION_TYPE})
-@Constraint(validatedBy = PasswordConstraintValidator.class)
+@Constraint(validatedBy = PasswordCheckValidator.class)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CheckPassword {
-    String message() default "Invalid Password";
+public @interface ValidPassword {
+    String message() default "Password Format is not valid";
     Class<?> [] groups() default {};
     Class <? extends Payload>[] payload() default {};
 }

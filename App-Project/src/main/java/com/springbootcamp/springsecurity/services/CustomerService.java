@@ -46,7 +46,7 @@ public class CustomerService {
 
         customerRepository.save(registerCustomer);
 
-        CustomerDto customerDto = getCustomer(registerCustomer.getId());
+        CustomerDto customerDto= getCustomer(registerCustomer.getId());
         return customerDto;
     }
     public CustomerDto getCustomer(Long id){

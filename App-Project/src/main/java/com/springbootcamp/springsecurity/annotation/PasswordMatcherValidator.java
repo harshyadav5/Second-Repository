@@ -16,5 +16,6 @@ public class PasswordMatcherValidator implements ConstraintValidator<PasswordMat
     public boolean isValid(Object value, ConstraintValidatorContext context) {
         UserCO userCO = (UserCO) value;
         return userCO.getPassword().equals(userCO.getConfirmPassword());
+
     }
 }

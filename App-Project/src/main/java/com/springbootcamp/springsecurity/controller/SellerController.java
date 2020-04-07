@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -27,12 +28,12 @@ public class SellerController {
     }
 
     @PostMapping("/")
-    public SellerDto registerSeller(@RequestBody SellerCO sellerCO, WebRequest webRequest){
+    public SellerDto registerSeller(@Valid @RequestBody SellerCO sellerCO, WebRequest webRequest){
        return sellerService.registerSeller(sellerCO);
     }
 
     @PutMapping("/{id}")
-    public SellerDto updateSeller(@PathVariable Long id,@RequestBody SellerCO sellerCO,WebRequest webRequest){
+    public SellerDto updateSeller(@PathVariable Long id, @Valid  @RequestBody SellerCO sellerCO, WebRequest webRequest){
         return sellerService.updateSeller(id,sellerCO);
     }
 

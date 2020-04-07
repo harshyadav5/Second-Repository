@@ -2,11 +2,13 @@ package com.springbootcamp.springsecurity.co;
 
 import com.springbootcamp.springsecurity.annotation.PasswordMatcher;
 import com.springbootcamp.springsecurity.annotation.ValidEmail;
+import com.springbootcamp.springsecurity.annotation.ValidPassword;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @PasswordMatcher
+//@ValidPassword
 public class UserCO {
     @ValidEmail
     @NotNull
@@ -25,6 +27,10 @@ public class UserCO {
     @NotNull
     @NotEmpty
     private String confirmPassword;
+
+    public UserCO(){
+
+    }
 
     public UserCO(@NotNull @NotEmpty String email, @NotNull @NotEmpty String firstName, String middleName,
                   @NotNull @NotEmpty String lastName, @NotNull @NotEmpty String password,
@@ -83,5 +89,17 @@ public class UserCO {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    @Override
+    public String toString() {
+        return "UserCO{" +
+                "email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                '}';
     }
 }

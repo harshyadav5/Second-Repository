@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -26,12 +27,12 @@ public class CustomerController {
     }
 
     @PostMapping("/")
-    public CustomerDto registerCustomer(@RequestBody CustomerCO customerCO, WebRequest webRequest){
+    public CustomerDto registerCustomer(@Valid @RequestBody CustomerCO customerCO, WebRequest webRequest){
         return customerService.registerCustomer(customerCO);
     }
 
     @PutMapping("/{id}")
-    public CustomerDto updateCustomer(@PathVariable Long id,@RequestBody CustomerCO customerCO , WebRequest webRequest){
+    public CustomerDto updateCustomer(@PathVariable Long id,@Valid @RequestBody CustomerCO customerCO , WebRequest webRequest){
         return  customerService.updateCustomer(id,customerCO);
     }
 

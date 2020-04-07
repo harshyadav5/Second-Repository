@@ -1,6 +1,7 @@
 package com.springbootcamp.springsecurity.domain.user;
 
 import com.springbootcamp.springsecurity.annotation.ValidEmail;
+import com.springbootcamp.springsecurity.annotation.ValidPassword;
 import com.springbootcamp.springsecurity.domain.Role;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -16,12 +17,13 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Email
-    @ValidEmail
+//    @Email
+//    @ValidEmail
     private String email;
     private String firstName;
     private String middleName;
     private String lastName;
+//    @ValidPassword
     private String password;
     private Boolean isDeleted;
     private Boolean isActive;

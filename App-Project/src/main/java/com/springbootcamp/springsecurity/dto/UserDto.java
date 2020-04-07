@@ -1,20 +1,24 @@
 package com.springbootcamp.springsecurity.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.springbootcamp.springsecurity.annotation.PasswordMatcher;
+import com.springbootcamp.springsecurity.annotation.ValidEmail;
 
 import javax.validation.constraints.NotEmpty;
 
+@PasswordMatcher
 public class UserDto {
     @NotEmpty
     private Long id;
     @NotEmpty
+    @ValidEmail
     private String email;
-    @NotEmpty
-    @JsonIgnore  //Using Json ignore here will create internal server error at registration time
-    private String password;
-    @NotEmpty
-    @JsonIgnore
-    private String ConfirmPassword;
+//    @NotEmpty
+////    @JsonIgnore  //Using Json ignore here will create internal server error at registration time
+//    private String password;
+//    @NotEmpty
+////    @JsonIgnore
+//    private String ConfirmPassword;
     @NotEmpty
     private String firstName;
     private String middleName;
@@ -49,21 +53,21 @@ public class UserDto {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return ConfirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        ConfirmPassword = confirmPassword;
-    }
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public String getConfirmPassword() {
+//        return ConfirmPassword;
+//    }
+//
+//    public void setConfirmPassword(String confirmPassword) {
+//        ConfirmPassword = confirmPassword;
+//    }
 
     public String getFirstName() {
         return firstName;
@@ -93,8 +97,6 @@ public class UserDto {
     public String toString() {
         return "UserDto{" +
                 "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", ConfirmPassword='" + ConfirmPassword + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", middleName='" + middleName + '\'' +
                 ", lastName='" + lastName + '\'' +

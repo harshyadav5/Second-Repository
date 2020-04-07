@@ -70,7 +70,7 @@ public class Bootstrap implements ApplicationRunner {
             appUser.setFirstName("Harsh");
             appUser.setMiddleName("Kumar");
             appUser.setLastName("Yadav");
-            appUser.setPassword(passwordEncoder.encode("savage"));
+            appUser.setPassword(passwordEncoder.encode("Savage@123"));
             appUser.setActive(true);
             appUser.setDeleted(false);
 
@@ -82,7 +82,7 @@ public class Bootstrap implements ApplicationRunner {
             seller.setEmail("Kshitiz.seller@gmail.com");
             seller.setFirstName("Kshitiz");
             seller.setLastName("Gupta");
-            seller.setPassword(passwordEncoder.encode("password"));
+            seller.setPassword(passwordEncoder.encode("Savage@123"));
             seller.setActive(true);
             seller.setDeleted(false);
             seller.setCompanyContact("Company Contact");
@@ -98,7 +98,7 @@ public class Bootstrap implements ApplicationRunner {
             customer.setFirstName("Smarth");
             customer.setMiddleName("");
             customer.setLastName("Vaish");
-            customer.setPassword(passwordEncoder.encode("password"));
+            customer.setPassword(passwordEncoder.encode("Savage@123"));
             customer.setActive(true);
             customer.setDeleted(false);
             customer.setContact("Customer Contact");
